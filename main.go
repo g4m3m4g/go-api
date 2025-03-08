@@ -2,12 +2,12 @@ package main
 
 import (
 	"log"
-	"os"
+	//"os"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/template/html/v2"
 	"github.com/joho/godotenv"
-	"github.com/gofiber/jwt/v2"
+	//"github.com/gofiber/jwt/v2"
 )
 
 type Book struct {
@@ -33,10 +33,10 @@ func main() {
 	books = append(books, Book{ID: 2, Title: "Game of Thrones", Author: "George Martin"})
 	books = append(books, Book{ID: 3, Title: "Harry Potter", Author: "J.K. Rowling"})
 
-	app.Post("/login", login)
-	app.Use(jwtware.New(jwtware.Config{
-		SigningKey: []byte(os.Getenv("JWT_SECRET")),
-	}))
+	//app.Post("/login", login)
+	//app.Use(jwtware.New(jwtware.Config{
+	//	SigningKey: []byte(os.Getenv("JWT_SECRET")),
+	//}))
 
 	app.Use(middleware)
 
@@ -48,7 +48,6 @@ func main() {
 
 	app.Post("/upload", uploadFile)
 	app.Get("/test", testHTML)
-	app.Get("/config", getEnv)
 
 	app.Listen(":8080")
 

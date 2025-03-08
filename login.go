@@ -1,5 +1,6 @@
-package main
 
+package main
+/*
 import (
 	"os"
 	"time"
@@ -48,3 +49,4 @@ func login(c *fiber.Ctx) error {
 		"token": t,
 	})
 }
+*/
