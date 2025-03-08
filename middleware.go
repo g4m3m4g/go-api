@@ -2,16 +2,12 @@ package main
 
 import (
 	"github.com/gofiber/fiber/v2"
-	"github.com/golang-jwt/jwt/v4"
+	"fmt"
+	"time"
+
 )
 
 func middleware(c *fiber.Ctx) error {
-	user := c.Locals("user").(*jwt.Token)
-	claims := user.Claims.(jwt.MapClaims)
-
-	if claims["role"] != "admin" {
-		return c.Status(fiber.StatusUnauthorized).SendString("Unauthorized") 
-	}
-
+	fmt.Printf("Request: %s\nTime: %s\n", c.OriginalURL(), time.Now())
 	return c.Next()
 }
