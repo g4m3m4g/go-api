@@ -1,12 +1,12 @@
 package main
 
 import (
-	"log"
+	//"log"
 	//"os"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/template/html/v2"
-	"github.com/joho/godotenv"
+	//"github.com/joho/godotenv"
 	//"github.com/gofiber/jwt/v2"
 )
 
@@ -19,9 +19,11 @@ type Book struct {
 var books []Book
 
 func main() {
+	/*
 	if err := godotenv.Load(); err != nil{
 		log.Fatal("loading .env file failed")
 	}
+	*/
 
 	engine := html.New("./views", ".html")
 
